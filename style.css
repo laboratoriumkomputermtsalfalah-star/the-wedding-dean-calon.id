@@ -1,0 +1,130 @@
+:root {
+    --pink: #f14e95;
+    --bg: #000;
+    --shadow: 0 2px 2px rgb(0 0 0/0.5);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: "Work Sans", sans-serif;
+}
+
+/* PERBAIKAN: Spasi dihapus menjadi .hero::before */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('img/background nikahan.jpeg'); 
+    background-size: cover;       
+    background-position: center;   
+    z-index: 1;                   
+    filter: grayscale();           
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--bg);  /* Warna dasar jika gambar lambat dimuat */
+    overflow: hidden;
+}
+
+/* PERBAIKAN: Konten dibungkus z-index lebih tinggi agar teks tidak tertutup gambar */
+.hero div {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero h1, .hero h4, .hero p{
+     text-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-family: "Sacramento", cursive;
+    font-size: 6rem;
+    color: white; 
+}
+
+.hero h4, .hero p {
+    color: white;
+    font-size: 1.6rem;
+}
+
+.hero a {
+    color: var(--pink);
+    background-color: white; /* Memberi warna dasar tombol agar teks pink terbaca */
+    border: 2px solid var(--pink);
+    box-shadow: var(--shadow);
+}
+
+.hero a:hover {
+    background-color: var(--pink);
+    color: white;
+    border: 2px solid var(--pink);
+}
+
+/* 1. Mengatur agar kotak countdown berjejer sejajar (horizontal) dan di tengah */
+#hitung-mundur {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar lingkaran */
+    margin-top: 20px;
+}
+
+/* 2. Mengubah kotak menjadi lingkaran bulat pink */
+#hitung-mundur .simply-section {
+    background-color: var(--pink); /* Disamakan dengan warna tema pink kamu */
+    width: 85px;               /* Lebar lingkaran */
+    height: 85px;              /* Tinggi lingkaran */
+    border-radius: 50%;        /* Membuat jadi bulat sempurna */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow); /* Menggunakan variabel shadow kamu */
+}
+
+/* 3. Mengatur ukuran dan warna Angka (Tahun, Bulan, Hari, Jam) */
+#hitung-mundur .simply-amount {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;            /* Warna angka putih */
+    line-height: 1;
+}
+
+/* 4. Mengatur ukuran dan warna Teks Huruf (hari, jam, menit, detik) */
+#hitung-mundur .simply-word {
+    display: block;
+    font-size: 0.8rem;
+    color: #ffffff;            /* Warna teks putih */
+    text-transform: uppercase; /* Membuat teks jadi huruf besar semua */
+    margin-top: 2px;
+}
+
+/*Media Query */
+/* Laptop */
+@media (max-width: 992px){
+html {
+    font-size: 75%;
+}
+}
+
+/* Tablet */
+@media (max-width:768px) {
+    html {
+    font-size: 65%;
+}
+}
+
+/* Mobile Phone */
+@media (max-width:576px){
+html {
+    font-size: 55%;
+}
+}
